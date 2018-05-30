@@ -19,7 +19,7 @@ $('#table').bootstrapTable({
     pageNumber: 1,
     pageSize: 20,
     pageList: [10, 25, 50, 100],
-    search: true,
+    search: false,
     selectItemName: 'btSelectItem',
     showHeader: true,
     showColumns: true,
@@ -27,8 +27,8 @@ $('#table').bootstrapTable({
     showToggle: false,
     smartDisplay: true,
     minimumCountColumns: 1,
-    uniqued: 'no',
-    idField: 'no',
+    uniqued: 'device_id',
+    idField: 'device_id',
     cardView: false,
     clickToSelect: false,
     singleSelect: false,
@@ -37,22 +37,38 @@ $('#table').bootstrapTable({
     sortable: true,
     maintainSelected: false,
     columns: [{
-        field: 'id',
-        title: 'Item ID'
+        field: 'device_id',
+        title: '设备ID',
+        sortable:true
     }, {
-        field: 'name',
-        title: 'Item Name'
+        field: 'device_imie',
+        title: '设备IMIE号'
     }, {
-        field: 'price',
-        title: 'Item Price'
+        field: 'device_name',
+        title: '设备名称'
+    }, {
+        field: 'device_type',
+        title: '设备类型', 
+    }, {
+        field: 'activate_time',
+        title: '激活时间',
+        sortable:true
+    }, {
+        field: 'dead_time',
+        title: '到期时间'
+    }, {
+        field: 'sim',
+        title: 'SIM卡号',
+    }, {
+        field: 'user',
+        title: '绑定用户',
+    }, {
+        field: 'setting',
+        title: '操作',
+        formatter:operateFormatter
     }],
-    data: [{
-        id: 1,
-        name: 'Item 1',
-        price: '$1'
-    }, {
-        id: 2,
-        name: 'Item 2',
-        price: '$2'
-    }]
 });
+
+function operateFormatter(value,row,index){
+        return '<a href="">设备详情</a> <a href="">查看位置</a>';
+}
