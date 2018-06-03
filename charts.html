@@ -153,12 +153,12 @@
 							</a>
 						</li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed">
+							<a href="#subDevice" data-toggle="collapse" class="collapsed">
 								<i class="lnr lnr-file-empty"></i>
 								<span>节点管理</span>
 								<i class="icon-submenu lnr lnr-chevron-left"></i>
 							</a>
-							<div id="subPages" class="collapse ">
+							<div id="subDevice" class="collapse ">
 								<ul class="nav">
 									<li>
 										<a href="elements.html" class="">节点分布</a>
@@ -232,6 +232,20 @@
 										</span>
 									</div>
 								</div>
+								<div class="panel-body device_car">
+									<div id="device" class="list-group">
+										<a href="#" class="list-group-item">
+											<h4 class="list-group-item-heading">设备ID</h4>
+											<p class="list-group-item-text">...</p>
+										</a>
+									</div>
+									<div id="device" class="list-group">
+										<a href="#" class="list-group-item">
+											<h4 class="list-group-item-heading">设备ID</h4>
+											<p class="list-group-item-text">...</p>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="col-md-9">
@@ -242,7 +256,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 			<!-- END MAIN CONTENT -->
 		</div>
@@ -263,6 +277,7 @@
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
+	<script src="assets/vendor/atta/event.js"></script>
 	<!--高德地图api资源引入-->
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=15db8247204be2b81b1b6d0c79c60429"></script>
 	<script src="http://webapi.amap.com/ui/1.0/main.js"></script>
@@ -356,7 +371,7 @@
 			};
 
 			new Chartist.Line('#multiple-chart', data, options);
-			
+
 		});
 
 		var map = new AMap.Map('container', {
@@ -364,19 +379,19 @@
 			zoom: 10,
 			center: [120.343454, 30.313062]
 		});
-		AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {
+		AMapUI.loadUI(['control/BasicControl'], function (BasicControl) {
 
 			//添加一个缩放控件
 			map.addControl(new BasicControl.Zoom({
 				position: 'lt'
 			}));
-	
+
 			//缩放控件，显示Zoom值
 			map.addControl(new BasicControl.Zoom({
 				position: 'lb',
 				showZoomNum: true
 			}));
-	
+
 			//图层切换控件
 			map.addControl(new BasicControl.LayerSwitcher({
 				position: 'rt'
